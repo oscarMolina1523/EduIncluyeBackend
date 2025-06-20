@@ -1,4 +1,7 @@
+import { generateId } from "../utils/GenerateId";
+
 export default class UserModel{
+    id?: string;
     name: string;
     email: string;
     password: string;
@@ -9,5 +12,7 @@ export default class UserModel{
         this.email=email;
         this.password=password;
         this.isActive=isActive;
+        this.id = generateId(); 
     }
+
 }
