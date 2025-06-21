@@ -15,4 +15,8 @@ export default class UserService {
   getUserById(id: string) {
     return this.userService.getById(id);
   }
+
+  addUser(user: UserModel) {
+    return this.userService.add(user);
+  }
 }
