@@ -7,4 +7,8 @@ export default class UserService{
     constructor(){
         this.userService = new GenericCrudService<UserModel>(userData);
     }
+
+    getAllUsers(): UserModel[] {
+        return this.userService.getAll();
+    }
 }
