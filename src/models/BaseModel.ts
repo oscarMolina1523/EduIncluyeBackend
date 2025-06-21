@@ -1,9 +1,9 @@
 import { generateId } from "../utils/GenerateId";
 
-export class BaseModel{
-    id: string;
+export class BaseModel {
+  id: string;
 
-    constructor(){
-        this.id = generateId();
-    }
+  constructor() {
+    this.id = generateId();
+  }
 }
