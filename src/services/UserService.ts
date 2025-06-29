@@ -24,4 +24,8 @@ export default class UserService {
   updateUser(id: string, user: UserDTO) {
     return this.userService.update(id, user);
   }
+
+  deleteUser(id: string){
+    return this.userService.delete(id);
+  }
 }
