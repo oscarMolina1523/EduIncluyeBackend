@@ -1,7 +1,6 @@
 import BaseModel from "./BaseModel";
 
 export default class ContentModel extends BaseModel{
-
     name:string;
     description:string;
     video:string;
