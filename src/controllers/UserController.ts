@@ -1,6 +1,7 @@
 import UserModel from "../models/UserModel";
 import UserService from "../services/UserService";
 import { Response, Request } from "express";
+import { generateId } from "../utils/GenerateId";
 
 export default class UserController {
   private service: UserService;
@@ -27,9 +28,10 @@ export default class UserController {
 
   addUser = (req: Request, res: Response) => {
     const { name, email, password, isActive } = req.body;
+    const id =generateId();
 
     // ✅ Crear la instancia de UserModel para que se genere el id
-    const newUser = new UserModel(name, email, password, isActive ?? true);
+    const newUser = new UserModel(id, name, email, password, isActive ?? true);
 
     const result = this.service.addUser(newUser);
 
