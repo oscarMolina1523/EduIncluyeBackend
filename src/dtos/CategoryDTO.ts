@@ -1,4 +1,4 @@
-export default interface CategoryModel{
+export interface CategoryDTO{
     name:string;
     description:string;
     video:string;

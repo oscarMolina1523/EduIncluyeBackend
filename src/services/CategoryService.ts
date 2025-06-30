@@ -1,5 +1,5 @@
 import { categoryData } from "../data/CategoryData";
-import CategoryDTO from "../dtos/CategoryDTO";
+import {CategoryDTO} from "../dtos/CategoryDTO";
 import CategoryModel from "../models/CategoryModel";
 import { GenericCrudService } from "./GenericCrudService";
 
