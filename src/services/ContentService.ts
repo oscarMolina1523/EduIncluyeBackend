@@ -1,16 +1,16 @@
-import { categoryData } from "../data/CategoryData";
-import { CategoryDTO } from "../dtos/CategoryDTO";
-import CategoryModel from "../models/CategoryModel";
+import { contentData } from "../data/contentData";
+import { ContentDTO } from "../dtos/ContentDTO";
+import ContentModel from "../models/ContentModel";
 import { GenericCrudService } from "./GenericCrudService";
 
 export default class ContentService {
-  private service: GenericCrudService<CategoryModel>;
+  private service: GenericCrudService<ContentModel>;
 
   constructor() {
-    this.service = new GenericCrudService<CategoryModel>(categoryData);
+    this.service = new GenericCrudService<ContentModel>(contentData);
   }
 
-  getAllContent(): CategoryModel[] {
+  getAllContent(): ContentModel[] {
     return this.service.getAll();
   }
 
@@ -18,11 +18,11 @@ export default class ContentService {
     return this.service.getById(id);
   }
 
-  addContent(content: CategoryModel) {
+  addContent(content: ContentModel) {
     return this.service.add(content);
   }
 
-  updateContent(id: string, content: CategoryDTO) {
+  updateContent(id: string, content: ContentDTO) {
     return this.service.update(id, content);
   }
 
