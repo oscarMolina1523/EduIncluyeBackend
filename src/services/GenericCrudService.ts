@@ -1,4 +1,4 @@
-import { BaseModel } from "../models/BaseModel";
+import BaseModel from "../models/BaseModel";
 
 //first receive a generic type T that extends BaseModel
 export class GenericCrudService<T extends BaseModel> {

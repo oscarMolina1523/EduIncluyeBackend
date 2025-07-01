@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import CategoryService from "../services/CategoryService";
 import CategoryModel from "../models/CategoryModel";
+import { generateId } from "../utils/GenerateId";
 
 export default class CategoryController {
   private service: CategoryService;
@@ -27,9 +28,10 @@ export default class CategoryController {
 
   addCategory = (req: Request, res: Response) => {
     const { name, description, video, image, isActive } = req.body;
+    const id =generateId();
 
     // ✅ Crear instancia de CategoryModel para generar el id
-    const newCategory = new CategoryModel(name, description, video, image, isActive);
+    const newCategory = new CategoryModel(id, name, description, video, image, isActive);
 
     const result = this.service.addCategory(newCategory);
 
