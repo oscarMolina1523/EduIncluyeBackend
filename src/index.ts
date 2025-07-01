@@ -5,6 +5,7 @@ import usersRoutes from '../src/routes/UserRoutes';
 import categoriesRoutes from '../src/routes/CategoryRoutes';
 import contentRoutes from "../src/routes/ContentRoutes";
 import graduatesRoutes from "../src/routes/GraduatesRoutes";
+import podcastRoutes from "../src/routes/PodcastRoutes";
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use('/users', usersRoutes);
 app.use('/category', categoriesRoutes);
 app.use('/content', contentRoutes);
 app.use('/graduates', graduatesRoutes);
+app.use('/podcast', podcastRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
