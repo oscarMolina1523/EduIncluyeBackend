@@ -1,6 +1,6 @@
 import BaseModel from "./BaseModel";
 
-export default class Graduates extends BaseModel{
+export default class GraduatesModel extends BaseModel{
     name:string;
     description:string;
     image:string;
