@@ -4,6 +4,7 @@ import specs from './swagger/swagger';
 import usersRoutes from '../src/routes/UserRoutes';
 import categoriesRoutes from '../src/routes/CategoryRoutes';
 import contentRoutes from "../src/routes/ContentRoutes";
+import graduatesRoutes from "../src/routes/GraduatesRoutes";
 
 
 const app = express();
@@ -14,6 +15,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use('/users', usersRoutes);
 app.use('/category', categoriesRoutes);
 app.use('/content', contentRoutes);
+app.use('/graduates', graduatesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
