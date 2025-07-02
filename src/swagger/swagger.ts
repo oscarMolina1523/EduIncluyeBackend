@@ -13,8 +13,8 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Local server'
+        url: 'https://edu-incluye-backend.vercel.app/',
+        description: 'Server Running'
       }
     ],
     components: {
