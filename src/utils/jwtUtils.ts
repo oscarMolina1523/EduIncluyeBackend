@@ -9,7 +9,7 @@ export function generateAccesToken(user: any) {
   if (!secret)
     throw new Error("JWT SECRET is not defined in environment variables");
 
-  return jwt.sign(user, secret, { expiresIn: "5m" });
+  return jwt.sign(user, secret, { expiresIn: "1d" });
 }
 
 
