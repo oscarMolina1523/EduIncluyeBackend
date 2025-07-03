@@ -16,28 +16,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
+app.use("/auth", authRoutes);
 app.use("/users",validateToken, usersRoutes);
 app.use("/category",validateToken, categoriesRoutes);
 app.use("/content",validateToken, contentRoutes);
 app.use("/graduates",validateToken, graduatesRoutes);
 app.use("/podcast",validateToken, podcastRoutes);
-app.use("/auth", authRoutes);
-
-// app.post("/auth", (req, res) => {
-//   const { username, password } = req.body;
-//   const user = { username: username };
-//   const accessToken = generateAccesToken(user);
-//   res.header("authorization", accessToken).json({
-//     message: "user authenticated",
-//     token: accessToken,
-//   });
-// });
-
-// app.get("/test", validateToken, (req, res) => {
-//   res.json({
-//     names: [{ name: "ani" }, { name: "all" }],
-//   });
-// });
 
 // app.listen(PORT, () => {
 //   console.log(`Server is running on http://localhost:${PORT}`);
