@@ -8,4 +8,6 @@ contentData=[
     new ContentModel("hVUGsrbehbobFYFHJ", "Facil", "aprende los colores primarios", "https://youtube.com/shorts/VAR7HlOSdzk?si=hxL-UxjrnEMZONxC", "audio.com", true, "gjvjgjGh"),
     new ContentModel("hVUjhvjehbobFj7FHJ", "Facil", "aprende las principales comidas", "https://youtube.com/shorts/Q1jgvGFRo5o?si=ScNPk1uqhasYDDkQ", "audio.com", true, "gjvjgjG976h"),
     new ContentModel("hVUGsrbjgvjv76tFYFHJ", "Intermedio", "aprende las principales comidas", "https://youtube.com/shorts/e7bItJRGfgU?si=i4hnYiX-rJWa9qb1", "audio.com", true, "gjvjgjG976h"),
+    new ContentModel("hVUGsrbjggvFHJ", "Facil", "aprende a decir HOLA", "https://youtube.com/shorts/JPJ5oHsExdc?si=TAzLSWFIf4TCeX9y", "audio.com", true, "gjvjhvlkh976h"),
+    new ContentModel("hVUGsrbjggv56rfJ", "Facil", "aprende a decir BUENOS DIAS", "https://youtube.com/shorts/UClL8_YjsKU?si=2QRs1xTgeCFudmGc", "audio.com", true, "gjvjhvlkh976h"),
 ]
