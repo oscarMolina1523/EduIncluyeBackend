@@ -11,4 +11,6 @@ contentData=[
     new ContentModel("hVUGsrbjggvFHJ", "Facil", "aprende a decir HOLA", "https://youtube.com/shorts/JPJ5oHsExdc?si=TAzLSWFIf4TCeX9y", "audio.com", true, "gjvjhvlkh976h"),
     new ContentModel("hVUGsrbjggv56rfJ", "Facil", "aprende a decir BUENOS DIAS", "https://youtube.com/shorts/UClL8_YjsKU?si=2QRs1xTgeCFudmGc", "audio.com", true, "gjvjhvlkh976h"),
     new ContentModel("hVUGsrbgfc6rfJ", "Facil", "aprende a decir FAMILIA", "https://youtube.com/shorts/VDulhDu51aM?si=FLQkLOdJFXBvjNrf", "audio.com", true, "gjvjhvlkYFH6h"),
+    new ContentModel("hVUGsrbgfcjgvjJ", "Facil", "aprende a decir MAMA", "https://youtube.com/shorts/BEeZVMqdcaQ?si=Le2iAGxcKhNf89xU", "audio.com", true, "gjvjhvlkYFH6h"),
+    new ContentModel("hVUGsrbgugvjvgvjJ", "Facil", "aprende a decir HERMANO", "https://youtube.com/shorts/v3s3bsZQVOs?si=HhX2wDmkuqyhPbxo", "audio.com", true, "gjvjhvlkYFH6h"),
 ]
