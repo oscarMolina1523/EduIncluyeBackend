@@ -6,4 +6,6 @@ contentData=[
     new ContentModel("hVUGF67FYFHJ", "Facil", "aprende cada dia de la semana", "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7", "audio.com", true, "gjvjvfGU866"),
     new ContentModel("hVUGsrbeFYFHJ", "Facil", "aprende los numeros enteros", "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5", "audio.com", true, "gjvjY88YGh"),
     new ContentModel("hVUGsrbehbobFYFHJ", "Facil", "aprende los colores primarios", "https://youtube.com/shorts/VAR7HlOSdzk?si=hxL-UxjrnEMZONxC", "audio.com", true, "gjvjgjGh"),
+    new ContentModel("hVUjhvjehbobFj7FHJ", "Facil", "aprende las principales comidas", "https://youtube.com/shorts/Q1jgvGFRo5o?si=ScNPk1uqhasYDDkQ", "audio.com", true, "gjvjgjG976h"),
+    new ContentModel("hVUGsrbjgvjv76tFYFHJ", "Intermedio", "aprende las principales comidas", "https://youtube.com/shorts/e7bItJRGfgU?si=i4hnYiX-rJWa9qb1", "audio.com", true, "gjvjgjG976h"),
 ]
