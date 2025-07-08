@@ -30,7 +30,7 @@ export default class AuthController {
       return;
     }
 
-    const token = generateAccesToken({ id: user.id, email: user.email });
+    const token = generateAccesToken({ id: user.id, email: user.email , name: user.name, isActive: user.isActive});
 
     res.status(200).json(token);
   };
@@ -61,7 +61,7 @@ export default class AuthController {
       return
     }
 
-    const token = generateAccesToken({ id: user.id, username: user.name });
+    const token = generateAccesToken({ id: user.id, email: user.email , name: user.name, isActive: user.isActive});
 
     res.status(200).json({
       message: "Login successful",
@@ -93,7 +93,7 @@ export default class AuthController {
       return 
     }
 
-    const token = generateAccesToken({ id: newUser.id, email: newUser.email });
+    const token = generateAccesToken({ id: newUser.id, email: newUser.email, name: newUser.name, isActive: newUser.isActive });
 
     res.status(201).json({
       message: "User registered successfully",
