@@ -69,7 +69,88 @@ contentData = [
   //numeros
   new ContentModel(
     "hVUGsrbeFYFHJ",
-    "Facil",
+    "1",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "2",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "3",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "4",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "5",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "6",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "7",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "8",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "9",
+    "aprende los numeros enteros",
+    "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
+    "audio.com",
+    true,
+    "gjvjY88YGh"
+  ),
+  new ContentModel(
+    "hVUGsrbeFYFHJ",
+    "10",
     "aprende los numeros enteros",
     "https://youtube.com/shorts/ol64bxm1qx8?si=_WXnNumhOTn8vMW5",
     "audio.com",
@@ -168,29 +249,48 @@ contentData = [
     true,
     "gjvjgjG976h"
   ),
-  new ContentModel(
-    "hVUGsrbjgvjv76tFYFHJ",
-    "Intermedio",
-    "aprende las principales comidas",
-    "https://youtube.com/shorts/e7bItJRGfgU?si=i4hnYiX-rJWa9qb1",
-    "audio.com",
-    true,
-    "gjvjgjG976h"
-  ),
+  //saludos
   new ContentModel(
     "hVUGsrbjggvFHJ",
-    "Facil",
-    "aprende a decir HOLA",
+    "HOLA",
+    "Abre la mano (palma hacia el frente) y muévela de un lado a otro a la altura del rostro.",
     "https://youtube.com/shorts/JPJ5oHsExdc?si=TAzLSWFIf4TCeX9y",
     "audio.com",
     true,
     "gjvjhvlkh976h"
   ),
   new ContentModel(
-    "hVUGsrbjggv56rfJ",
-    "Facil",
-    "aprende a decir BUENOS DIAS",
-    "https://youtube.com/shorts/UClL8_YjsKU?si=2QRs1xTgeCFudmGc",
+    "hVUGsrbjggvFHJ",
+    "Buenos dias",
+    "Primero, saluda con “hola”, luego: Coloca la mano no dominante en forma de “L” en el antebrazo (como sosteniendo un periódico).",
+    "https://youtube.com/shorts/JPJ5oHsExdc?si=TAzLSWFIf4TCeX9y",
+    "audio.com",
+    true,
+    "gjvjhvlkh976h"
+  ),
+  new ContentModel(
+    "hVUGsrbjggvFHJ",
+    "Buenas tardes",
+    "Coloca la mano no dominante extendida (como una superficie).La mano dominante la cubre parcialmente en un movimiento hacia abajo.",
+    "https://youtube.com/shorts/JPJ5oHsExdc?si=TAzLSWFIf4TCeX9y",
+    "audio.com",
+    true,
+    "gjvjhvlkh976h"
+  ),
+  new ContentModel(
+    "hVUGsrbjggvFHJ",
+    "Adios",
+    "Levanta la mano abierta y muévela de un lado a otro, como “hola”, pero al final de una conversación.",
+    "https://youtube.com/shorts/JPJ5oHsExdc?si=TAzLSWFIf4TCeX9y",
+    "audio.com",
+    true,
+    "gjvjhvlkh976h"
+  ),
+  new ContentModel(
+    "hVUGsrbjggvFHJ",
+    "Gracias",
+    "Mano dominante abierta, con los dedos juntos.Coloca la punta de los dedos sobre el mentón (parte inferior de la boca).Haz un movimiento suave hacia adelante y ligeramente hacia abajo, como si enviaras un beso sin los labios.",
+    "https://youtube.com/shorts/JPJ5oHsExdc?si=TAzLSWFIf4TCeX9y",
     "audio.com",
     true,
     "gjvjhvlkh976h"
@@ -249,25 +349,6 @@ contentData = [
     "audio.com",
     true,
     "gjvjhvlkYFH6h"
-  ),
-  //emociones
-  new ContentModel(
-    "hVUGsrbgjJ",
-    "Facil",
-    "aprende emociones",
-    "https://youtube.com/shorts/C3WGhLX7J2k?si=B9fPL_Tc0Tk5fUtc",
-    "audio.com",
-    true,
-    "gjvjhvkhbkH6h"
-  ),
-  new ContentModel(
-    "hVUGsrbgihybobjJ",
-    "Facil",
-    "aprende frases basicas",
-    "https://youtube.com/shorts/72kThwEHfqY?si=h1wXqX6OTOsZT_6b",
-    "audio.com",
-    true,
-    "gjvjhvkhbkH6h"
   ),
   //alfabeto
   new ContentModel(
