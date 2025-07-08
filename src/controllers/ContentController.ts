@@ -79,7 +79,8 @@ export default class ContentController {
     const { idCategoria, page = 1, pageSize = 10 } = req.body;
 
     if (!idCategoria) {
-      return res.status(400).json({ message: "idCategoria is required" });
+     res.status(400).json({ message: "idCategoria is required" });
+     return
     }
 
     const contents = this.service.getContentByCategoriaPaginated(

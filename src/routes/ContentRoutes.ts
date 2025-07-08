@@ -165,6 +165,47 @@ router.post("/", contentController.addContent);
 
 /**
  * @swagger
+ * /content/contents-by-category-paginated:
+ *   post:
+ *     summary: Get contents by category with pagination
+ *     tags: [Contents]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - idCategoria
+ *             properties:
+ *               idCategoria:
+ *                 type: string
+ *                 description: The ID of the category to filter contents by
+ *                 example: kjh324hkjh
+ *               page:
+ *                 type: integer
+ *                 description: The page number to retrieve (default is 1)
+ *                 example: 1
+ *               pageSize:
+ *                 type: integer
+ *                 description: The number of items per page (default is 10)
+ *                 example: 10
+ *     responses:
+ *       200:
+ *         description: A list of contents filtered by category with pagination
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Content'
+ *       400:
+ *         description: idCategoria is required
+ */
+router.post("/contents-by-category-paginated", contentController.getContentByCategoryPaginated);
+
+/**
+ * @swagger
  * /content/{id}:
  *   put:
  *     summary: Update an existing Content
