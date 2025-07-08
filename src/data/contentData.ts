@@ -134,8 +134,35 @@ contentData = [
   //comidas
   new ContentModel(
     "hVUjhvjehbobFj7FHJ",
-    "Facil",
-    "aprende las principales comidas",
+    "Leche",
+    "Coloca el puño cerca de la boca (como si ordeñaras una vaca).",
+    "https://youtube.com/shorts/Q1jgvGFRo5o?si=ScNPk1uqhasYDDkQ",
+    "audio.com",
+    true,
+    "gjvjgjG976h"
+  ),
+  new ContentModel(
+    "hVUjhvjehbobFj7FHJ",
+    "Cereal",
+    "Usa la mano dominante con los dedos juntos y estirados (como una cuchara). Haz un movimiento de llevar algo a la boca repetidamente.",
+    "https://youtube.com/shorts/Q1jgvGFRo5o?si=ScNPk1uqhasYDDkQ",
+    "audio.com",
+    true,
+    "gjvjgjG976h"
+  ),
+  new ContentModel(
+    "hVUjhvjehbobFj7FHJ",
+    "Pan",
+    "Usa una mano en posición horizontal como si fuera una tabla (no dominante), y la mano dominante hace un movimiento de corte sobre la palma, como si cortaras pan",
+    "https://youtube.com/shorts/Q1jgvGFRo5o?si=ScNPk1uqhasYDDkQ",
+    "audio.com",
+    true,
+    "gjvjgjG976h"
+  ),
+  new ContentModel(
+    "hVUjhvjehbobFj7FHJ",
+    "Huevo",
+    "Une los dedos índice y pulgar de ambas manos, una sobre otra.",
     "https://youtube.com/shorts/Q1jgvGFRo5o?si=ScNPk1uqhasYDDkQ",
     "audio.com",
     true,
