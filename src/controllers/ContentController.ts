@@ -31,7 +31,15 @@ export default class ContentController {
     const id = generateId();
 
     // ✅ Crear instancia de CategoryModel (usado como ContentModel)
-    const newContent = new ContentModel(id, name, description, video, audio, isActive, idCategory);
+    const newContent = new ContentModel(
+      id,
+      name,
+      description,
+      video,
+      audio,
+      isActive,
+      idCategory
+    );
 
     const result = this.service.addContent(newContent);
 
@@ -65,5 +73,20 @@ export default class ContentController {
     } else {
       res.status(404).json({ message: result.message });
     }
+  };
+
+  getContentByCategoryPaginated = (req: Request, res: Response) => {
+    const { idCategoria, page = 1, pageSize = 10 } = req.body;
+
+    if (!idCategoria) {
+      return res.status(400).json({ message: "idCategoria is required" });
+    }
+
+    const contents = this.service.getContentByCategoriaPaginated(
+      idCategoria,
+      page,
+      pageSize
+    );
+    res.status(200).json(contents);
   };
 }
