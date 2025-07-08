@@ -29,4 +29,19 @@ export default class ContentService {
   deleteContent(id: string) {
     return this.service.delete(id);
   }
+
+  getContentByCategoriaPaginated(
+    idCategoria: string,
+    page: number = 1,
+    pageSize: number = 10
+  ): ContentModel[] {
+    const filtered = this.service
+      .getAll()
+      .filter((content) => content.idCategory === idCategoria);
+
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    return filtered.slice(startIndex, endIndex);
+  }
 }
