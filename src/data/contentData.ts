@@ -5,13 +5,68 @@ export let contentData: ContentModel[];
 contentData = [
   new ContentModel(
     "hVUGF67FYFHJ",
-    "Facil",
-    "aprende cada dia de la semana",
+    "Lunes",
+    "Forma la letra L con la mano dominante (índice y pulgar extendidos formando un ángulo recto.)",
     "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
     "audio.com",
     true,
     "gjvjvfGU866"
   ),
+  new ContentModel(
+    "hVUGF67FYFHJ",
+    "Martes",
+    "Forma la letra M (tres dedos extendidos: índice, medio y anular; pulgar y meñique doblados).",
+    "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
+    "audio.com",
+    true,
+    "gjvjvfGU866"
+  ),
+  new ContentModel(
+    "hVUGF67FYFHJ",
+    "Miercoles",
+    "Haz la letra M nuevamente, pero esta vez realiza un pequeño movimiento en dirección lateral o diagonal.",
+    "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
+    "audio.com",
+    true,
+    "gjvjvfGU866"
+  ),
+  new ContentModel(
+    "hVUGF67FYFHJ",
+    "Jueves",
+    "Forma la letra J con la mano (índice extendido, los demás dedos doblados).",
+    "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
+    "audio.com",
+    true,
+    "gjvjvfGU866"
+  ),
+  new ContentModel(
+    "hVUGF67FYFHJ",
+    "Viernes",
+    "Forma la letra V (índice y medio extendidos como señal de paz).",
+    "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
+    "audio.com",
+    true,
+    "gjvjvfGU866"
+  ),
+  new ContentModel(
+    "hVUGF67FYFHJ",
+    "Sabado",
+    "Cierra la mano formando un puño (puede representar descanso o el final de la semana).",
+    "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
+    "audio.com",
+    true,
+    "gjvjvfGU866"
+  ),
+  new ContentModel(
+    "hVUGF67FYFHJ",
+    "Domingo",
+    "Abre ambas manos con los dedos extendidos y palmas hacia arriba.",
+    "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
+    "audio.com",
+    true,
+    "gjvjvfGU866"
+  ),
+  //numeros
   new ContentModel(
     "hVUGsrbeFYFHJ",
     "Facil",
