@@ -39,6 +39,7 @@ export default class ContentService {
       .getAll()
       .filter((content) => content.idCategory === idCategoria);
 
+    //para  calcular cuantos elementos devolver , ej: 0-9 la primera pagina y asi
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
 
