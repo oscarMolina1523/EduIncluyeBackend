@@ -4,6 +4,15 @@ export let contentData: ContentModel[];
 
 contentData = [
   new ContentModel(
+    "ijgv",
+    "Señas",
+    "Aprende las señas mas comunes , facil y sencillo",
+    "https://youtube.com/shorts/umwNSuLF38k?si=qpcm6u1_4SOrgPD7",
+    "audio.com",
+    true,
+    "gjvjhvkhbkH6h"
+  ),
+  new ContentModel(
     "id1",
     "Lunes",
     "Forma la letra L con la mano dominante (índice y pulgar extendidos formando un ángulo recto.)",
