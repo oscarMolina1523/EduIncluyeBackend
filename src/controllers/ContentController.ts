@@ -10,84 +10,90 @@ export default class ContentController {
     this.service = new ContentService();
   }
 
-  getAllContent = (req: Request, res: Response) => {
-    const content = this.service.getAllContent();
-    res.status(200).json(content);
+  getAllContent = async (req: Request, res: Response) => {
+    try {
+      const content = await this.service.getAllContent();
+      res.status(200).json(content);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Failed to get content" });
+    }
   };
 
-  getContentById = (req: Request, res: Response) => {
+  getContentById = async (req: Request, res: Response) => {
     const contentId = req.params.id;
-    const content = this.service.getContentById(contentId);
-
-    if (content) {
+    try {
+      const content = await this.service.getContentById(contentId);
       res.status(200).json(content);
-    } else {
+    } catch (error) {
+      console.error(error);
       res.status(404).json({ message: "Content not found" });
     }
   };
 
-  addContent = (req: Request, res: Response) => {
+  addContent = async (req: Request, res: Response) => {
     const { name, description, video, audio, isActive, idCategory } = req.body;
-    const id = generateId();
 
-    // ✅ Crear instancia de CategoryModel (usado como ContentModel)
-    const newContent = new ContentModel(
-      id,
+    const newContent = {
       name,
       description,
       video,
       audio,
       isActive,
-      idCategory
-    );
-
-    const result = this.service.addContent(newContent);
-
-    if (result) {
-      res.status(201).json({ message: "Content added correctly" });
-    } else {
+      idCategory,
+    };
+    try {
+      const createdContent = await this.service.addContent(newContent);
+      res
+        .status(201)
+        .json({ message: "Content added correctly", content: createdContent });
+    } catch (error) {
+      console.error(error);
       res.status(400).json({ message: "Failed to add the content" });
     }
   };
 
-  updateContent = (req: Request, res: Response) => {
+  updateContent = async (req: Request, res: Response) => {
     const id = req.params.id;
     const data = req.body;
-
-    const result = this.service.updateContent(id, data);
-
-    if (result.success) {
-      res.status(200).json({ message: result.message });
-    } else {
-      res.status(404).json({ message: result.message });
+    try{
+      await this.service.updateContent(id, data);
+      res.status(200).json({ message: "Content Updated" });
+    }catch(error){
+      console.error(error);
+      res.status(404).json({ message: "Failed to update content"});
     }
   };
 
-  deleteContent = (req: Request, res: Response) => {
+  deleteContent = async (req: Request, res: Response) => {
     const id = req.params.id;
-
-    const result = this.service.deleteContent(id);
-
-    if (result.success) {
-      res.status(200).json({ message: result.message });
-    } else {
-      res.status(404).json({ message: result.message });
+    try{
+      await this.service.deleteContent(id);
+      res.status(200).json({ message: "Content Deleted successfull" });
+    }catch(error){
+      console.error(error);
+      res.status(404).json({ message: "Failed to delete content"});
     }
   };
 
-  getContentByCategoryPaginated = (req: Request, res: Response) => {
+  getContentByCategoryPaginated = async (req: Request, res: Response) => {
     const { idCategoria, page = 1, pageSize = 10 } = req.body;
 
     if (!idCategoria) {
-     res.status(400).json({ message: "idCategoria is required" });
-     return
+      res.status(400).json({ message: "idCategoria is required" });
+      return;
     }
 
-    const contents = this.service.getContentByCategoriaPaginated(
-      idCategoria,
-      page,
-      pageSize
-    );
-    res.status(200).json(contents);
+    try{
+      const contents = this.service.getContentByCategoriaPaginated(
+        idCategoria,
+        page,
+        pageSize
+      );
+      res.status(200).json(contents);
+    }catch(error){
+      console.error(error);
+      res.status(404).json({message: "content not found"})
+    }
   };
 }
