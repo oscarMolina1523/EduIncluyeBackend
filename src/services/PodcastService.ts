@@ -19,7 +19,7 @@ export default class PodcastService {
     return await this.podcastService.getById(id);
   }
 
-  async addPodcast(podcast: PodcastModel):Promise<PodcastModel> {
+  async addPodcast(podcast: Omit<PodcastModel, "id">):Promise<PodcastModel> {
     return await this.podcastService.add(podcast);
   }
 
