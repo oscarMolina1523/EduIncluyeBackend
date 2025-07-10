@@ -1,32 +1,38 @@
-import { categoryData } from "../data/CategoryData";
 import {CategoryDTO} from "../dtos/CategoryDTO";
 import CategoryModel from "../models/CategoryModel";
-import { GenericCrudService } from "./GenericCrudService";
-
+import { FirestoreCrudService } from "./FirestoreCrudService";
 export default class CategoryService {
-  private categoryService: GenericCrudService<CategoryModel>;
+  private categoryService: FirestoreCrudService<CategoryModel>;
 
   constructor() {
-    this.categoryService = new GenericCrudService<CategoryModel>(categoryData);
+    this.categoryService = new FirestoreCrudService<CategoryModel>("category");
   }
 
-  getAllCategories(): CategoryModel[] {
-    return this.categoryService.getAll();
+  async getAllCategories(): Promise<CategoryModel[]> {
+    return await this.categoryService.getAll();
   }
 
-  getCategoryById(id: string) {
-    return this.categoryService.getById(id);
+  async getCategoryById(id: string):Promise<CategoryModel | null> {
+    return await this.categoryService.getById(id);
   }
 
-  addCategory(category: CategoryModel) {
-    return this.categoryService.add(category);
+  async addCategory(category: Omit<CategoryModel, "id">): Promise<CategoryModel>{
+    return await this.categoryService.add(category);
   }
 
-  updateCategory(id: string, category: CategoryDTO) {
-    return this.categoryService.update(id, category);
+  async updateCategory(id: string, category: CategoryDTO): Promise<boolean> {
+    return await this.categoryService.update(id, category);
   }
 
-  deleteCategory(id: string) {
-    return this.categoryService.delete(id);
+  async deleteCategory(id: string): Promise<boolean>{
+    return await this.categoryService.delete(id);
   }
 }
+
+// 💡 Resumen rápido de que devuelve cada metodo de firestore
+// Método	-->Acción-->	Retorno esperado
+// getAll	-->Obtener todos	CategoryModel[] -->(array de objetos)
+// getById	-->Obtener uno	-->CategoryModel
+// add	-->Crear uno nuevo-->	string (ID generado)
+// update	-->Actualizar uno	-->boolean (éxito o no)
+// delete	-->Eliminar uno	-->boolean (éxito o no)

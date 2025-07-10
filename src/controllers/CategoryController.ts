@@ -10,60 +10,87 @@ export default class CategoryController {
     this.service = new CategoryService();
   }
 
-  getAllCategories = (req: Request, res: Response) => {
-    const categories = this.service.getAllCategories();
-    res.status(200).json(categories);
+  getAllCategories = async (req: Request, res: Response) => {
+    try {
+      const categories = await this.service.getAllCategories();
+      res.status(200).json(categories);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Failed to get categories" });
+    }
   };
 
-  getCategoryById = (req: Request, res: Response) => {
+  getCategoryById = async (req: Request, res: Response) => {
     const categoryId = req.params.id;
-    const category = this.service.getCategoryById(categoryId);
+    try {
+      const category = await this.service.getCategoryById(categoryId);
 
-    if (category) {
-      res.status(200).json(category);
-    } else {
-      res.status(404).json({ message: "Category not found" });
+      if (category) {
+        res.status(200).json(category);
+      } else {
+        res.status(404).json({ message: "Category not found" });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Failed to get category" });
     }
   };
 
-  addCategory = (req: Request, res: Response) => {
-    const { name, description, video, image, isActive } = req.body;
-    const id =generateId();
+  addCategory = async (req: Request, res: Response) => {
+  const { name, description, video, image, isActive } = req.body;
 
-    // ✅ Crear instancia de CategoryModel para generar el id
-    const newCategory = new CategoryModel(id, name, description, video, image, isActive);
-
-    const result = this.service.addCategory(newCategory);
-
-    if (result) {
-      res.status(201).json({ message: "Category added correctly" });
-    } else {
-      res.status(400).json({ message: "Failed to add the category" });
-    }
+  const newCategoryData = {
+    name,
+    description,
+    video,
+    image,
+    isActive,
   };
 
-  updateCategory = (req: Request, res: Response) => {
+  try {
+    const createdCategory = await this.service.addCategory(newCategoryData);
+    res.status(201).json({
+      message: "Category added correctly",
+      category: createdCategory,
+    });
+  } catch (error) {
+    console.error("Add category error:", error);
+    res.status(400).json({ message: "Failed to add the category" });
+  }
+};
+
+
+  updateCategory = async (req: Request, res: Response) => {
     const id = req.params.id;
     const data = req.body;
 
-    const result = this.service.updateCategory(id, data);
+    try {
+      const success = await this.service.updateCategory(id, data);
 
-    if (result.success) {
-      res.status(200).json({ message: result.message });
-    } else {
-      res.status(404).json({ message: result.message });
+      if (success) {
+        res.status(200).json({ message: "Category updated successfully" });
+      } else {
+        res.status(404).json({ message: "Category not found" });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(400).json({ message: "Failed to update category" });
     }
   };
 
-  deleteCategory = (req: Request, res: Response) => {
+  deleteCategory = async (req: Request, res: Response) => {
     const id = req.params.id;
+    try {
+      const result = await this.service.deleteCategory(id);
 
-    const result = this.service.deleteCategory(id);
-
-    if (result.success) {
-      res.status(200).json({ message: result.message });
-    } else {
-      res.status(404).json({ message: result.message });
+      if (result) {
+        res.status(200).json({ message: "Category deleted successfully" });
+      } else {
+        res.status(404).json({ message: "Category not found" });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(400).json({ message: "Failed to delete category" });
     }
   };
 }
