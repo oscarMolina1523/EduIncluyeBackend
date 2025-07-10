@@ -18,7 +18,7 @@ export default class GraduatesService {
     return await this.service.getById(id);
   }
 
-  async addGraduate(graduate: GraduatesModel) :Promise<GraduatesModel>{
+  async addGraduate(graduate: Omit<GraduatesModel, "id">) :Promise<GraduatesModel>{
     return await this.service.add(graduate);
   }
 

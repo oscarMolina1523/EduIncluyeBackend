@@ -29,14 +29,14 @@ export default class AuthService {
     return user.password === password;
   }
 
-  register(name: string, email: string, password: string): UserModel | null {
+  register(name: string, email: string, password: string, image:string): UserModel | null {
     const exists = this.findByEmail(email);
     if (exists) {
       return null; // ya existe un usuario con ese email
     }
 
     const id = generateId();
-    const newUser = new UserModel(id, name, email, password, true);
+    const newUser = new UserModel(id, name, email, password,image, true);
 
     this.users.push(newUser);
     return newUser;

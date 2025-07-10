@@ -125,6 +125,7 @@ router.post("/loginwithusername", authController.loginWithUsername);
  *               - name
  *               - email
  *               - password
+ *               - image
  *             properties:
  *               name:
  *                 type: string
@@ -136,6 +137,9 @@ router.post("/loginwithusername", authController.loginWithUsername);
  *               password:
  *                 type: string
  *                 example: strongPassword123
+ *               image:
+ *                 type: string
+ *                 example: random.img
  *     responses:
  *       201:
  *         description: User registered successfully with JWT token
@@ -163,6 +167,9 @@ router.post("/loginwithusername", authController.loginWithUsername);
  *                       type: string
  *                       format: email
  *                       example: johndoe@example.com
+ *                     image:
+ *                       type: string
+ *                       example: random.img
  *       400:
  *         description: Name, email, and password are required
  *       409:

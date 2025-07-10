@@ -75,7 +75,7 @@ export default class AuthController {
   };
 
   register = (req: Request, res: Response) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, image } = req.body;
 
     if (!name || !email || !password) {
       res
@@ -84,7 +84,7 @@ export default class AuthController {
       return 
     }
 
-    const newUser = this.authService.register(name, email, password);
+    const newUser = this.authService.register(name, email, password, image);
 
     if (!newUser) {
       res

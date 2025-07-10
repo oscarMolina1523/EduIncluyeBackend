@@ -14,6 +14,7 @@ const userController = new UsersController();
  *         - name
  *         - email
  *         - password
+ *         - image
  *         - isActive
  *       properties:
  *         id:
@@ -28,6 +29,9 @@ const userController = new UsersController();
  *         password:
  *           type: string
  *           description: The password of the User
+ *         image:
+ *           type: string
+ *           description: The image of the User
  *         isActive:
  *           type: boolean
  *           description: The state of the User (e.g., true, false)
@@ -36,6 +40,7 @@ const userController = new UsersController();
  *         name: Eduardo Jose Rodriguez
  *         email: eduardo@gmail.com
  *         password: 123456
+ *         image: random.img
  *         isActive: true
  *
  *     UserDTO:
@@ -44,6 +49,7 @@ const userController = new UsersController();
  *         - name
  *         - email
  *         - password
+ *         - image
  *         - isActive
  *       properties:
  *         name:
@@ -55,6 +61,9 @@ const userController = new UsersController();
  *         password:
  *           type: string
  *           description: The password of the User
+ *         image:
+ *           type: string
+ *           description: The image of the User
  *         isActive:
  *           type: boolean
  *           description: The status of the User (e.g., true, false)
@@ -62,6 +71,7 @@ const userController = new UsersController();
  *         name: Eduardo Jose Rodriguez
  *         email: eduardo@gmail.com
  *         password: 123456
+ *         image: random.img
  *         isActive: true
  */
 
