@@ -34,7 +34,7 @@ export default class UserController {
 
   addUser = async (req: Request, res: Response) => {
     const { name, email, password, isActive } = req.body;
-    const newUser = new UserModel(name, email, password, isActive ?? true);
+    const newUser = {name, email, password, isActive};
     try{
       const createdUser = await this.service.addUser(newUser);
       res.status(201).json({ message: "User added correctly", user: createdUser });
