@@ -34,7 +34,10 @@ export default class UserController {
 
   addUser = async (req: Request, res: Response) => {
     const { name, email, password,image,  isActive } = req.body;
-    const newUser = {name, email, password, image, isActive};
+
+    const defaultImage = "https://cdn-icons-png.flaticon.com/512/3135/3135823.png";
+
+    const newUser = {name, email, password,  image: image || defaultImage, isActive};
     try{
       const createdUser = await this.service.addUser(newUser);
       res.status(201).json({ message: "User added correctly", user: createdUser });
