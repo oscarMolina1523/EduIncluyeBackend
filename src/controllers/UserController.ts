@@ -10,60 +10,64 @@ export default class UserController {
     this.service = new UserService();
   }
 
-  getAllUsers = (req: Request, res: Response) => {
-    const users = this.service.getAllUsers();
-    res.status(200).json(users);
+  getAllUsers = async (req: Request, res: Response) => {
+    try {
+      const users = await this.service.getAllUsers();
+      res.status(200).json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Failed to get users" });
+    }
   };
 
-  getUserById = (req: Request, res: Response) => {
+  getUserById = async (req: Request, res: Response) => {
     const userId = req.params.id;
-    const user = this.service.getUserById(userId);
 
-    if (user) {
+    try{
+      const user = await this.service.getUserById(userId);
       res.status(200).json(user);
-    } else {
+    }catch(error){
+      console.error(error);
       res.status(404).json({ message: "User not found" });
     }
   };
 
-  addUser = (req: Request, res: Response) => {
-    const { name, email, password, isActive } = req.body;
-    const id =generateId();
+  addUser = async (req: Request, res: Response) => {
+    const { name, email, password,image,  isActive } = req.body;
 
-    // ✅ Crear la instancia de UserModel para que se genere el id
-    const newUser = new UserModel(id, name, email, password, isActive ?? true);
+    const defaultImage = "https://cdn-icons-png.flaticon.com/512/3135/3135823.png";
 
-    const result = this.service.addUser(newUser);
-
-    if (result) {
-      res.status(201).json({ message: "User added correctly" });
-    } else {
+    const newUser = {name, email, password,  image: image || defaultImage, isActive};
+    try{
+      const createdUser = await this.service.addUser(newUser);
+      res.status(201).json({ message: "User added correctly", user: createdUser });
+    }catch(error){
+      console.error(error);
       res.status(400).json({ message: "failed to add the user" });
     }
   };
 
-  updateUser = (req: Request, res: Response) => {
+  updateUser = async (req: Request, res: Response) => {
     const id = req.params.id;
     const data = req.body;
-
-    const result = this.service.updateUser(id, data);
-
-    if (result.success) {
-      res.status(200).json({ message: result.message });
-    } else {
-      res.status(404).json({ message: result.message });
+    try{
+      await this.service.updateUser(id, data);
+      res.status(200).json({message:"User updated successfully"});
+    }catch(error){
+      console.error(error);
+      res.status(404).json({ message: "Failed to update user" });
     }
   };
 
-  deleteUser = (req: Request, res: Response) => {
+  deleteUser = async (req: Request, res: Response) => {
     const id = req.params.id;
 
-    const result = this.service.deleteUser(id);
+    try{
+      await this.service.deleteUser(id);
+      res.status(200).json({ message: "User deleted" });
 
-    if (result.success) {
-      res.status(200).json({ message: result.message });
-    } else {
-      res.status(404).json({ message: result.message });
+    }catch(error){
+      res.status(404).json({ message: "Failed to delete the user" });
     }
   };
 }

@@ -1,31 +1,30 @@
 import UserModel from "../models/UserModel";
-import { GenericCrudService } from "./GenericCrudService";
-import { userData } from "../data/UserData";
 import { UserDTO } from "../dtos/UserDTO";
+import { FirestoreCrudService } from "./FirestoreCrudService";
 
 export default class UserService {
-  private userService: GenericCrudService<UserModel>;
+  private userService: FirestoreCrudService<UserModel>;
   constructor() {
-    this.userService = new GenericCrudService<UserModel>(userData);
+    this.userService = new FirestoreCrudService<UserModel>("users");
   }
 
-  getAllUsers(): UserModel[] {
-    return this.userService.getAll();
+  async getAllUsers(): Promise<UserModel[]> {
+    return await this.userService.getAll();
   }
 
-  getUserById(id: string) {
-    return this.userService.getById(id);
+  async getUserById(id: string):Promise<UserModel | null> {
+    return await this.userService.getById(id);
   }
 
-  addUser(user: UserModel) {
-    return this.userService.add(user);
+  async addUser(user: Omit<UserModel, "id">):Promise<UserModel> {
+    return await this.userService.add(user);
   }
 
-  updateUser(id: string, user: UserDTO) {
-    return this.userService.update(id, user);
+  async updateUser(id: string, user: UserDTO) :Promise<boolean>{
+    return await this.userService.update(id, user);
   }
 
-  deleteUser(id: string){
-    return this.userService.delete(id);
+  async deleteUser(id: string):Promise<boolean>{
+    return await this.userService.delete(id);
   }
 }

@@ -1,32 +1,33 @@
 import { podcastData } from "../data/podcastData";
 import { PodcastDTO } from "../dtos/PodcastDTO";
 import PodcastModel from "../models/PodcastModel";
+import { FirestoreCrudService } from "./FirestoreCrudService";
 import { GenericCrudService } from "./GenericCrudService";
 
 export default class PodcastService {
-  private podcastService: GenericCrudService<PodcastModel>;
+  private podcastService: FirestoreCrudService<PodcastModel>;
 
   constructor() {
-    this.podcastService = new GenericCrudService<PodcastModel>(podcastData);
+    this.podcastService = new FirestoreCrudService<PodcastModel>("podcast");
   }
 
-  getAllPodcasts(): PodcastModel[] {
-    return this.podcastService.getAll();
+  async getAllPodcasts(): Promise<PodcastModel[]> {
+    return await this.podcastService.getAll();
   }
 
-  getPodcastById(id: string) {
-    return this.podcastService.getById(id);
+  async getPodcastById(id: string):Promise<PodcastModel | null> {
+    return await this.podcastService.getById(id);
   }
 
-  addPodcast(podcast: PodcastModel) {
-    return this.podcastService.add(podcast);
+  async addPodcast(podcast: Omit<PodcastModel, "id">):Promise<PodcastModel> {
+    return await this.podcastService.add(podcast);
   }
 
-  updatePodcast(id: string, podcast: PodcastDTO) {
-    return this.podcastService.update(id, podcast);
+  async updatePodcast(id: string, podcast: PodcastDTO) :Promise<boolean>{
+    return await this.podcastService.update(id, podcast);
   }
 
-  deletePodcast(id: string) {
-    return this.podcastService.delete(id);
+  async deletePodcast(id: string) :Promise<boolean>{
+    return await this.podcastService.delete(id);
   }
 }

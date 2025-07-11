@@ -1,32 +1,32 @@
 import { graduatesData } from "../data/GraduatesData";
 import { GraduatesDTO } from "../dtos/GraduatesDTO";
 import GraduatesModel from "../models/Graduates";
-import { GenericCrudService } from "./GenericCrudService";
+import { FirestoreCrudService } from "./FirestoreCrudService";
 
 export default class GraduatesService {
-  private service: GenericCrudService<GraduatesModel>;
+  private service: FirestoreCrudService<GraduatesModel>;
 
   constructor() {
-    this.service = new GenericCrudService<GraduatesModel>(graduatesData);
+    this.service = new FirestoreCrudService<GraduatesModel>("graduates");
   }
 
-  getAllGraduates(): GraduatesModel[] {
-    return this.service.getAll();
+  async getAllGraduates(): Promise<GraduatesModel[]> {
+    return await this.service.getAll();
   }
 
-  getGraduateById(id: string) {
-    return this.service.getById(id);
+  async getGraduateById(id: string):Promise<GraduatesModel | null> {
+    return await this.service.getById(id);
   }
 
-  addGraduate(graduate: GraduatesModel) {
-    return this.service.add(graduate);
+  async addGraduate(graduate: Omit<GraduatesModel, "id">) :Promise<GraduatesModel>{
+    return await this.service.add(graduate);
   }
 
-  updateGraduate(id: string, graduate: GraduatesDTO) {
-    return this.service.update(id, graduate);
+  async updateGraduate(id: string, graduate: GraduatesDTO):Promise<boolean> {
+    return await this.service.update(id, graduate);
   }
 
-  deleteGraduate(id: string) {
-    return this.service.delete(id);
+  async deleteGraduate(id: string) :Promise<boolean>{
+    return await this.service.delete(id);
   }
 }

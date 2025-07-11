@@ -30,3 +30,6 @@ yarn-error.log*
 # Optional: testing / coverage
 coverage/
 .vercel
+
+# Firebase service account key
+eduincluye-14601-firebase-adminsdk-fbsvc-c0acad3d39.json

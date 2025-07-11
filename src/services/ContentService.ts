@@ -1,43 +1,45 @@
-import { contentData } from "../data/contentData";
 import { ContentDTO } from "../dtos/ContentDTO";
 import ContentModel from "../models/ContentModel";
-import { GenericCrudService } from "./GenericCrudService";
+import { FirestoreCrudService } from "./FirestoreCrudService";
 
 export default class ContentService {
-  private service: GenericCrudService<ContentModel>;
+  private service: FirestoreCrudService<ContentModel>;
 
   constructor() {
-    this.service = new GenericCrudService<ContentModel>(contentData);
+    this.service = new FirestoreCrudService<ContentModel>("content");
   }
 
-  getAllContent(): ContentModel[] {
-    return this.service.getAll();
+  async getAllContent(): Promise<ContentModel[]> {
+    return await this.service.getAll();
   }
 
-  getContentById(id: string) {
-    return this.service.getById(id);
+  async getContentById(id: string): Promise<ContentModel | null> {
+    return await this.service.getById(id);
   }
 
-  addContent(content: ContentModel) {
-    return this.service.add(content);
+  async addContent(content: Omit<ContentModel, "id">): Promise<ContentModel> {
+    return await this.service.add(content);
   }
 
-  updateContent(id: string, content: ContentDTO) {
-    return this.service.update(id, content);
+  async updateContent(id: string, content: ContentDTO): Promise<boolean> {
+    return await this.service.update(id, content);
   }
 
-  deleteContent(id: string) {
-    return this.service.delete(id);
+  async deleteContent(id: string): Promise<boolean> {
+    return await this.service.delete(id);
   }
 
-  getContentByCategoriaPaginated(
+  async getContentByCategoriaPaginated(
     idCategoria: string,
     page: number = 1,
     pageSize: number = 10
-  ): ContentModel[] {
-    const filtered = this.service
-      .getAll()
-      .filter((content) => content.idCategory === idCategoria);
+  ): Promise<ContentModel[]> {
+    // 1. Espera la data de Firestore
+    const allContents = await this.service.getAll();
+    // 2. Filtra por categoria
+    const filtered = allContents.filter(
+      (content) => content.idCategory === idCategoria
+    );
 
     //para  calcular cuantos elementos devolver , ej: 0-9 la primera pagina y asi
     const startIndex = (page - 1) * pageSize;

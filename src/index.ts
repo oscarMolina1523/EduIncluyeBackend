@@ -23,8 +23,8 @@ app.use("/content",validateToken, contentRoutes);
 app.use("/graduates",validateToken, graduatesRoutes);
 app.use("/podcast",validateToken, podcastRoutes);
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 
 export default app;

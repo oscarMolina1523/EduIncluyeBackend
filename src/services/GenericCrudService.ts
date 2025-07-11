@@ -13,32 +13,35 @@ export class GenericCrudService<T extends BaseModel> {
 
   //this method return the array of data
   //it is used to get all the data
-  getAll():T[]{
+  getAll(): T[] {
     return this.data;
   }
 
   //this method recieves an id and send the specific item
   //if the item is not found, it throws an error
   getById(id: string): T | undefined {
-    const item= this.data.find((item) => item.id ==id);
+    const item = this.data.find((item) => item.id == id);
     if (!item) {
-    throw new Error(`Entity with id ${id} not found`);
+      throw new Error(`Entity with id ${id} not found`);
     }
     return item;
   }
 
   //this method receives an item of type T and adds in the existing data array
-  add(item: T): boolean{
-    try{
+  add(item: T): boolean {
+    try {
       this.data.push(item);
       return true;
-    }catch{
+    } catch {
       return false;
     }
   }
 
   //this method receives an id and data to update the existing item
-  update(id: string, updatedData: Partial <T>):{ success: boolean; message: string }{
+  update(
+    id: string,
+    updatedData: Partial<T>
+  ): { success: boolean; message: string } {
     const index = this.data.findIndex((item) => item.id === id);
     if (index !== -1) {
       // Merge the existing item with the updated data
@@ -52,14 +55,14 @@ export class GenericCrudService<T extends BaseModel> {
   //this method receives an id and search in the array by index , if index exists, it deletes the item
   delete(id: string): { success: boolean; message: string } {
     const item = this.data.findIndex((item) => item.id === id);
-    if(item !== -1) {
+    if (item !== -1) {
       this.data.splice(item, 1);
       return { success: true, message: "Entity deleted successfully" };
-    }else {
-    return {
-      success: false,
-      message: `Entity with id ${id} not found`,
-    };
-  }
+    } else {
+      return {
+        success: false,
+        message: `Entity with id ${id} not found`,
+      };
+    }
   }
 }
