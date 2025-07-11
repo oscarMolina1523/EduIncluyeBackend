@@ -38,18 +38,22 @@ export default class AuthService {
     name: string,
     email: string,
     password: string,
-    image: string
+    image?: string
   ): Promise<UserModel | null>{
+
     const exists = await this.findByEmail(email);
+
     if (exists) {
       return null; // ya existe un usuario con ese email
     }
+
+    const defaultImage = "https://cdn-icons-png.flaticon.com/512/3135/3135823.png";
 
     const newUser: Omit<UserModel, "id"> = {
       name,
       email,
       password,
-      image,
+      image: image || defaultImage,
       isActive: true,
     };
 
