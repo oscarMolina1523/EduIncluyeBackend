@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import ContentService from "../services/ContentService";
-import { generateId } from "../utils/GenerateId";
-import ContentModel from "../models/ContentModel";
 
 export default class ContentController {
   private service: ContentService;
@@ -85,11 +83,12 @@ export default class ContentController {
     }
 
     try{
-      const contents = this.service.getContentByCategoriaPaginated(
+      const contents = await this.service.getContentByCategoriaPaginated(
         idCategoria,
         page,
         pageSize
       );
+      
       res.status(200).json(contents);
     }catch(error){
       console.error(error);
