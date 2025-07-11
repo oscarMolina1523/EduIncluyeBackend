@@ -35,16 +35,26 @@ export default class ContentService {
     pageSize: number = 10
   ): Promise<ContentModel[]> {
     // 1. Espera la data de Firestore
-    const allContents = await this.service.getAll();
-    // 2. Filtra por categoria
-    const filtered = allContents.filter(
-      (content) => content.idCategory === idCategoria
-    );
+const allContents = await this.service.getAll();
 
-    //para  calcular cuantos elementos devolver , ej: 0-9 la primera pagina y asi
-    const startIndex = (page - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
+// 2. Filtra por categoría
+const filtered = allContents.filter(
+  (content) => content.idCategory === idCategoria
+);
 
-    return filtered.slice(startIndex, endIndex);
+// 3. Ordena alfabéticamente por nombre (o campo deseado)
+const ordered = filtered.sort((a, b) => {
+  const nameA = a.name.toLowerCase();
+  const nameB = b.name.toLowerCase();
+  return nameA.localeCompare(nameB, "es", { sensitivity: "base" });
+});
+
+// 4. Calcula el rango de paginación
+const startIndex = (page - 1) * pageSize;
+const endIndex = startIndex + pageSize;
+
+// 5. Retorna la página ordenada
+return ordered.slice(startIndex, endIndex);
+
   }
 }
