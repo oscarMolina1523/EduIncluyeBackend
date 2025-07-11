@@ -1,44 +1,59 @@
 import UserModel from "../models/UserModel";
 import { userData } from "../data/UserData";
 import { generateId } from "../utils/GenerateId";
+import UserService from "./UserService";
 
 export default class AuthService {
-  private users: UserModel[];
+  private userService: UserService;
 
   constructor() {
-    this.users = userData;
+    this.userService = new UserService();
   }
 
-  findByUsername(username: string): UserModel | undefined {
-    return this.users.find((user) => user.name === username);
+  async findByUsername(username: string): Promise<UserModel | null> {
+    const users = await this.userService.getAllUsers();
+    const user = users.find((u) => u.name === username);
+    return user || null;
   }
 
-  findByEmail(email: string): UserModel | undefined {
-    return this.users.find(user => user.email === email);
+  async findByEmail(email: string): Promise< UserModel | null> {
+    const users = await this.userService.getAllUsers();
+    const user = users.find(u => u.email === email);
+    return user || null;
   }
 
-  validateUsernameAndPassword(username: string, password: string): boolean {
-    const user = this.findByUsername(username);
+  async validateUsernameAndPassword(username: string, password: string):Promise<boolean> {
+    const user = await this.findByUsername(username);
     if (!user) return false;
     return user.password === password;
   }
 
-  validateEmailAndPassword(email: string, password: string): boolean {
-    const user = this.findByEmail(email);
+  async validateEmailAndPassword(email: string, password: string): Promise<boolean>{
+    const user = await this.findByEmail(email);
     if (!user) return false;
     return user.password === password;
   }
 
-  register(name: string, email: string, password: string, image:string): UserModel | null {
-    const exists = this.findByEmail(email);
+  async register(
+    name: string,
+    email: string,
+    password: string,
+    image: string
+  ): Promise<UserModel | null>{
+    const exists = await this.findByEmail(email);
     if (exists) {
       return null; // ya existe un usuario con ese email
     }
 
-    const id = generateId();
-    const newUser = new UserModel(id, name, email, password,image, true);
+    const newUser: Omit<UserModel, "id"> = {
+      name,
+      email,
+      password,
+      image,
+      isActive: true,
+    };
 
-    this.users.push(newUser);
-    return newUser;
+    const createdUser = await this.userService.addUser(newUser);
+    return createdUser;
   }
 }

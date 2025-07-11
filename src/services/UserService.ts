@@ -1,6 +1,4 @@
 import UserModel from "../models/UserModel";
-import { GenericCrudService } from "./GenericCrudService";
-import { userData } from "../data/UserData";
 import { UserDTO } from "../dtos/UserDTO";
 import { FirestoreCrudService } from "./FirestoreCrudService";
 
