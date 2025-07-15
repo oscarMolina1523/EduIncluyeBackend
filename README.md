@@ -24,7 +24,7 @@
 
 ###
 
-<h2 align="left">Ejemplo de endpoints</h2>
+<h2 align="left">Endpoints disponibles</h2>
 
 ###
 
