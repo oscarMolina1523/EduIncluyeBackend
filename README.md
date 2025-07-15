@@ -28,8 +28,8 @@
 
 ###
 
-<div align="center">
-  <img height="1500" src="https://i.ibb.co/GvjXt5G8/api-Documentation.jpg"  />
+<div align="left">
+  <img height="auto" src="https://i.ibb.co/GvjXt5G8/api-Documentation.jpg"  />
 </div>
 
 ###
