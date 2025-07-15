@@ -2,7 +2,7 @@
 
 ###
 
-<p align="left">Creación de backend para el consumo del app mobile en el frontend, cuenta con endpoints completos y documentados para facilitar su lectura, usando herramientas de ultima tecnología, además cuenta con seguridad de cada endpoint usando JWT para la autenticación y protección de datos.</p>
+<p align="left">Creación de backend para el consumo del app mobile en el frontend, cuenta con endpoints completos y documentados para facilitar su lectura, usando herramientas de ultima tecnología, además cuenta con seguridad de cada endpoint usando JWT para la autenticación y protección de datos, este backend es para un e-learning de lenguaje de señas , el cual cuenta con opciones avanzadas como transformar de texto a voz, de manera que se facilite su uso y aprendizaje, el principal objetivo es promover la inclusión y comunicación con personas con capacidades diferentes(tambien llamados sordos-mudos).</p>
 
 ###
 
