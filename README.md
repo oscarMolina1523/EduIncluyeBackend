@@ -24,12 +24,12 @@
 
 ###
 
-<h2 align="left">Endpoints disponibles</h2>
+<h2 align="left">Vista de algunos Endpoints disponibles</h2>
 
 ###
 
 <div align="left">
-  <img height="auto" src="https://i.ibb.co/GvjXt5G8/api-Documentation.jpg"  />
+  <img height="auto" src="https://i.ibb.co/hFBYWF61/api-Documentation.jpg"  />
 </div>
 
 ###
