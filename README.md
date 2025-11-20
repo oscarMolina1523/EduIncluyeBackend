@@ -29,7 +29,7 @@
 ###
 
 <div align="left">
-  <img height="auto" src="https://i.ibb.co/hFBYWF61/api-Documentation.jpg"  />
+  <img src="https://i.ibb.co/hFBYWF61/api-Documentation.jpg" alt="juvenil" border="0">
 </div>
 
 ###
