@@ -29,7 +29,7 @@
 ###
 
 <div align="left">
-  <img src="https://i.ibb.co/hFBYWF61/api-Documentation.jpg" alt="juvenil" border="0">
+  <img src="https://i.ibb.co/xSj4XknQ/edu-Incluye-Api.png" alt="edu-Incluye-Api" border="0">
 </div>
 
 ###
@@ -41,27 +41,24 @@
 <h2 align="left">Paso a Paso para instalar</h2>
 
 ###
+```bash
 
-<p align="left">1.Primero debe correr los siguientes comandos en la terminal: <br><br>git clone https://github.com/oscarMolina1523/EduIncluyeBackend.git</p>
+#Primero debe correr los siguientes comandos en la terminal:
 
-###
+git clone https://github.com/oscarMolina1523/EduIncluyeBackend.git
 
-<p align="left">2.A continuación entrar al proyecto</p>
+# A continuación entrar al proyecto
 
-###
+cd EduIncluyeBackend
 
-<div align="center">
-  <img height="200" src="https://i.ibb.co/HDpPCL6G/route.png"  />
-</div>
+#proceder a ejecutar el comando para instalar las dependencias:
 
-###
+npm install
 
-<p align="left">3.proceder a ejecutar el comando para instalar las dependencias:<br><br>npm install</p>
+#abrir el proyecto en tu IDE de preferencia en este caso VISUAL STUDIO CODE el cual usa el siguiente comando:
 
-###
-
-<p align="left">4.abrir el proyecto en tu IDE de preferencia en este caso VISUAL STUDIO CODE el cual usa el siguiente comando:<br><br>code .</p>
-
+code .
+```
 ###
 
 <h2 align="left">Autor</h2>
